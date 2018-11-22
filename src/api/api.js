@@ -41,6 +41,10 @@ class Bundle {
   async starChatItem ({ itemId, star = true }) {
     return await POST(`/chatitem/${ itemId }/star`, { star })
   }
+
+  async deleteOne ({ name }) {
+    return await POST(`/delete-bundle/${ name }`)
+  }
 }
 
 class API {

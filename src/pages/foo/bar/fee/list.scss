@@ -23,3 +23,15 @@
     position: absolute;
   }
 }
+
+a.del {
+  margin-left: 0.5rem;
+  &.disabled {
+    opacity: 0.3;
+    color: #555;
+    pointer-events: none;
+  }
+  &.confirm {
+    color: #ff3333;
+  }
+}

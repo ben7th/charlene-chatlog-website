@@ -6,9 +6,13 @@ const Dialog = require('./models/Dialog')
 const ChatItem = require('./models/ChatItem')
 
 const run = async () => {
+  let bundleName = 'temp1111.xls'
   await connectDB(async () => {
-    dialog = await Dialog.findOne({ _id: '5bf56864a7c7d1000ccbe2c6' })
-    console.log(dialog)
+    await Bundle.deleteMany({ name: bundleName })
+    dialogs = await Dialog.find({ bundle: bundleName })
+    dids = dialogs.map(x => x._id)
+    await Dialog.deleteMany({ bundle: bundleName })
+    await ChatItem.deleteMany({ dialog: { $in: dids }})
   })
 }
 

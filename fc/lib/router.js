@@ -40,12 +40,29 @@ module.exports = new Router([
     respJSON(resp, { dialogs })
   }],
 
+  // 删除一个批次
+  ['POST', '/delete-bundle/:bundleName', async ({ req, resp, route }) => {
+    let { bundleName } = route.params
+
+    let dialogs, dids
+    await connectDB(async () => {
+      await Bundle.deleteMany({ name: bundleName })
+      dialogs = await Dialog.find({ bundle: bundleName })
+      dids = dialogs.map(x => x._id)
+      await Dialog.deleteMany({ bundle: bundleName })
+      await ChatItem.deleteMany({ dialog: { $in: dids }})
+    })
+    
+    respJSON(resp, { dids })
+  }],
+
   // 给某个 chatitem 标星星
   ['POST', '/chatitem/:id/star', async ({ req, resp, route }) => {
     let itemId = route.params.id
     let { body } = await getBody({ req, resp })
     let { star } = body
 
+    let chatitem
     await connectDB(async () => {
       chatitem = await ChatItem.findOne({ _id: itemId })
       chatitem.star = star

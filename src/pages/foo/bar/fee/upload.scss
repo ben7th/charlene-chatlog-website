@@ -1,0 +1,36 @@
+.uploading {
+  height: 2.5rem;
+  padding: 0 1rem;
+  line-height: 2.5rem;
+}
+
+.uploaded {
+  margin-bottom: 2rem;
+}
+
+.uploadform {
+  .upload {
+    background-color: #00a0e9;
+    color: white;
+    display: inline-block;
+    clear: both;
+    position: relative;
+    height: 2.5rem;
+    padding: 0 1rem;
+    border-radius: 0.5rem;
+    line-height: 2.5rem;
+    overflow: hidden;
+    &:hover {
+      background-color: lighten(#00a0e9, 10%);
+    }
+  }
+  input {
+    position: absolute;
+    font-size: 10rem;
+    outline: none;
+    opacity: 0;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "chatlog-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "args": "^5.0.0",
+    "mongoose": "^5.3.11",
+    "url-router": "^7.0.0",
+    "xlsx": "^0.14.0"
+  }
+}

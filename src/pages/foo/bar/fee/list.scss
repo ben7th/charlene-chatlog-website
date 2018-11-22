@@ -1,0 +1,25 @@
+.loading {
+  font-size: 3rem;
+}
+
+@keyframes arrow {
+  0% {
+    opacity: 0.6;
+    transform: translateX(0.3rem)
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(-0.3rem);
+  }
+}
+
+.uploadlink {
+  position: relative;
+  i {
+    margin-left: 1rem;
+    color: #ff5a00;
+    animation: arrow infinite .5s linear alternate-reverse;
+    position: absolute;
+  }
+}
